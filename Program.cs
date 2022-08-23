@@ -17,19 +17,29 @@ internal class Program
         dictionary.Add("Набросать", "Бросить куда-нибудь в каком-нибудь количестве, в несколько приемов");
         dictionary.Add("Счастье", "Чувство и состояние полного, высшего удовлетворения");
 
-        Console.Write("Введите слово, значение которого хотите найти: ");
-        string userWord = Console.ReadLine();
+        FindWord(dictionary);
+    }
+
+    static void FindWord(Dictionary<string, string> dictionary)
+    {
         bool isFindWord = false;
 
-        if (dictionary.ContainsKey(userWord))
+        while (isFindWord != true)
         {
-            Console.Write(dictionary[userWord]);
-            isFindWord = true;
-        }
+            Console.Write("Введите слово, значение которого хотите найти: ");
+            string userWord = Console.ReadLine();
 
-        if (isFindWord == false)
-        {
-            Console.WriteLine("Данного слова нет в нашем словаре");
+            if (dictionary.ContainsKey(userWord))
+            {
+                Console.Write(dictionary[userWord]);
+                isFindWord = true;
+            }
+
+            else
+            {
+                Console.WriteLine("Данного слова нет в нашем словаре");
+            }
+
         }
     }
 }
