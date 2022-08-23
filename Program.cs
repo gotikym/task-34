@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 internal class Program
@@ -21,13 +21,10 @@ internal class Program
         string userWord = Console.ReadLine();
         bool isFindWord = false;
 
-        foreach (string word in dictionary.Keys)
+        if (dictionary.ContainsKey(userWord))
         {
-            if (word == userWord)
-            {
-                Console.Write(dictionary[userWord]);
-                isFindWord = true;
-            }
+            Console.Write(dictionary[userWord]);
+            isFindWord = true;
         }
 
         if (isFindWord == false)
