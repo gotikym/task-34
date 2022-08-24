@@ -17,6 +17,8 @@ internal class Program
         dictionary.Add("Набросать", "Бросить куда-нибудь в каком-нибудь количестве, в несколько приемов");
         dictionary.Add("Счастье", "Чувство и состояние полного, высшего удовлетворения");
 
+        AddDictionary(dictionary);
+
         FindWord(dictionary);
     }
 
@@ -24,7 +26,7 @@ internal class Program
     {
         bool isFindWord = false;
 
-        while (isFindWord != true)
+        while (isFindWord == false)
         {
             Console.Write("Введите слово, значение которого хотите найти: ");
             string userWord = Console.ReadLine();
@@ -34,12 +36,34 @@ internal class Program
                 Console.Write(dictionary[userWord]);
                 isFindWord = true;
             }
-
             else
             {
                 Console.WriteLine("Данного слова нет в нашем словаре");
             }
+        }
+    }
 
+    static void AddDictionary(Dictionary<string, string> dictionary)
+    {
+        bool isFindWord = false;
+        string wordDesignation;
+
+        while (isFindWord == false)
+        {
+            Console.Write("Введите слово, значение которого хотите добавить: ");
+            string userWord = Console.ReadLine();
+
+            if (dictionary.ContainsKey(userWord))
+            {
+                Console.WriteLine("Такое слово уже есть в словаре.");
+            }
+            else
+            {
+                Console.WriteLine("Введите описание для вашего слова: ");
+                wordDesignation = Console.ReadLine();
+                dictionary.Add(userWord, wordDesignation);
+                isFindWord = true;
+            }
         }
     }
 }
